@@ -48,8 +48,5 @@ public class Product {
 	public void setPrices(List<Price> prices) {
 		this.prices = prices;
 	}
-	
-	
-	
 
 }
