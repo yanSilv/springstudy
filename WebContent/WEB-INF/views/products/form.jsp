@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="produtos" method="post">
+	<form action="/springstudy/produtos" method="post">
 		<div>
 			<label for="title">Título</label>
 			<input type="text" name="title" id="title"/>
