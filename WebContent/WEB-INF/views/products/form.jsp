@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,7 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/springstudy/produtos" method="post">
+	<form action="${spring:mvcUrl("PC#save").build()}" method="post">
 		<div>
 			<label for="title">Título</label>
 			<input type="text" name="title" id="title"/>
@@ -31,6 +32,13 @@
 				<input type="hidden" name="prices[${status.index}].bookType" value="${bookType}">
 			</div>
 		</c:forEach>-->
+		<spring:hasBindErrors name="product">
+			<ul>
+				<c:forEach items="${errors.allErrors}" var="error">
+					<li>${error.code}</li>
+				</c:forEach>
+			</ul>
+		</spring:hasBindErrors>
 		<div>
 			<input type="submit" value="Enviar"/>
 		</div>
